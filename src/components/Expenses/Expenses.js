@@ -4,6 +4,7 @@ import Card from "../UI/Card";
 import ExpensesFilter from "../UI/ExpensesFilter";
 // import ExpenseItem from "./ExpenseItem";
 import "./Expenses.css";
+import ExpensesChart from "./ExpensesChart";
 import ExpensesList from "./ExpensesList";
 
 function Expenses(props){
@@ -16,7 +17,6 @@ function Expenses(props){
     );
 
     const onFilterChange = (changedData) => {
-        console.log(changedData);
         // Doesn't depend on previous state, directly.
         setFilterData(changedData);
     };
@@ -26,6 +26,7 @@ function Expenses(props){
     return(
         <Card className="expenses">
             <ExpensesFilter onFilterChange={onFilterChange} />
+            <ExpensesChart expenses={filteredExpenses} />
             <ExpensesList items={filteredExpenses} />
         </Card>
     
